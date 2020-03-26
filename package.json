@@ -1,0 +1,73 @@
+{
+  "name": "bb_theme",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Simone Franchina",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "dotenv": "^4.0.0",
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-cache": "^0.4.5",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^2.0.1",
+    "gulp-util": "^3.0.8",
+    "node-sass": "^4.11.0",
+    "npmfiles": "^0.1.1"
+  },
+  "dependencies": {
+    "angular": "^1.7.2",
+    "angular-animate": "1.7.2",
+    "angular-aria": "1.7.2",
+    "angular-messages": "1.7.2",
+    "angular-sanitize": "1.7.2",
+    "bootstrap": "^4.4.1",
+    "jquery": "1.9.1",
+    "popper.js": "^1.14.3",
+    "stickyfilljs": "^2.1.0"
+  },
+  "overrides": {
+    "jquery": {
+      "main": "**/jquery.js"
+    },
+    "bootstrap": {
+      "main": "**/bootstrap.js"
+    },
+    "angular": {
+      "main": "**/angular.js"
+    },
+    "angular-sanitize": {
+      "main": "**/angular-sanitize.js"
+    },
+    "angular-animate": {
+      "main": "**/angular-animate.js"
+    },
+    "angular-messages": {
+      "main": "angular-messages.js"
+    },
+    "angular-aria": {
+      "main": "angular-aria.js"
+    },
+    "scrolltofixed": {
+      "main": "jquery-scrolltofixed.js"
+    },
+    "bootstrap-select": {
+      "main": "**/bootstrap-select.min.js"
+    },
+    "stickyfilljs": {
+      "main": "**/stickyfill.min.js"
+    },
+    "masonry-layout": {
+      "main": "dist/masonry.pkgd.js"
+    }
+  }
+}
