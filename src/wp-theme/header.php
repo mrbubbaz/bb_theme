@@ -23,7 +23,6 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'bb_theme' ); ?></a>
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
@@ -44,16 +43,34 @@
 				<p class="site-description"><?php echo $bb_theme_description; /* WPCS: xss ok. */ ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'bb_theme' ); ?></button>
+            <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
 			<?php
-			wp_nav_menu( array(
-				'theme_location' => 'menu-1',
-				'menu_id'        => 'primary-menu',
-			) );
+
+
+            wp_nav_menu( array(
+                'theme_location'  => 'menu-1',
+                'depth'           => 2, // 1 = no dropdowns, 2 = with dropdowns.
+                'container'       => 'div',
+                'container_class' => 'main-navigation collapse navbar-collapse',
+                'container_id'    => 'site-navigation',
+                'menu_class'      => 'navbar-nav mr-auto',
+                'fallback_cb'     => 'WP_Bootstrap_Navwalker::fallback',
+                'walker'          => new WP_Bootstrap_Navwalker(),
+            ) );
+
+
 			?>
-		</nav><!-- #site-navigation -->
+            </div>
+        </nav>
+		<!-- #site-navigation -->
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
+        <div class="row">

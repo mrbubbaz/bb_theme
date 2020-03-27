@@ -5,12 +5,12 @@
 @import "node_modules/bootstrap/scss/mixins";
 
 
-@import "_custom.scss";
+@import "custom";
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
 @import "layout/page";
-@import "layout/underscore";
+//@import "layout/underscore";
 
 
 

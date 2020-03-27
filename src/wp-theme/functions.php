@@ -122,7 +122,7 @@ add_action( 'widgets_init', 'bb_theme_widgets_init' );
 function bb_theme_scripts() {
 	wp_enqueue_style( 'bb_theme-style', get_template_directory_uri() . '/assets/styles/style.min.css');
 
-	//wp_enqueue_script( 'bb_theme-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'bb_theme-libs', get_template_directory_uri() . '/assets/scripts/libs/libs.min.js', array(), '20151215', true );
 
 	//wp_enqueue_script( 'bb_theme-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -146,6 +146,16 @@ require get_template_directory() . '/inc/template-tags.php';
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
+
+
+/**
+ * Register Custom Navigation Walker
+ */
+
+function register_navwalker(){
+    require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+}
+add_action( 'after_setup_theme', 'register_navwalker' );
 
 /**
  * Customizer additions.

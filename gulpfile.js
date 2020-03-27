@@ -111,6 +111,48 @@ gulp.task('angularTemplates',function(){
         .pipe(gulp.dest(paths.script.src + '/templates/'));
 });
 
+// libs
+gulp.task('scripts:libs', function () {
+
+
+    var libs = mainNPMFiles('**/*.js');//.concat([paths.scripts.src + '/cookie-bar/cookiebar-inp.js']);
+
+    //console.log(libs);
+
+    function getLib(libName) {
+        var index = -1;
+        var name = "";
+        libs.forEach(function (v, i) {
+            name = v.substring(v.lastIndexOf('/') + 1).split('.js')[0];
+            // console.log(name);
+            if (libName === name) index = i;
+        });
+
+        if (index < 0) {
+            console.error('non trovato >>', libName);
+            //console.log(libs);
+        }
+
+        return libs[index];
+    }
+
+
+    return gulp.src([
+            getLib('jquery'),
+            getLib('popper'),
+            getLib('bootstrap'),
+            getLib('stickyfill.min')
+        ]
+    )
+        .pipe(concat('libs.js'))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(uglify().on('error', function (e) {
+            console.log(e);
+        }))
+        .pipe(gulp.dest(paths.script.dest + '/libs'));
+});
+
+
 // Scripts vengono copiati tutti i file che sono dentro scripts
 gulp.task('scripts', gulp.series(function () {
 

@@ -1,17 +1,47 @@
 #page {
-  @include make-container();
-  @include make-container-max-widths();
+
 }
 
 
 #content {
-  @include make-row()
+  @include make-container();
+  @include make-container-max-widths();
+}
+
+#masthead {
+  padding: {
+    top : $spacer
+  };
+  .site-branding {
+    @include make-container();
+    @include make-container-max-widths();
+  }
 }
 
 #primary {
   @include make-col-auto();
   @include media-breakpoint-up("md"){
     @include make-col(9,12);
+  }
+
+  .site-main {
+    padding :{
+      right: 15px;
+      left: 15px;
+    };
+    .entry-header
+    {
+      padding: {
+        top: $spacer;
+        bottom: $spacer;
+      };
+    }
+    .entry-content {
+      @include media-breakpoint-up("md") {
+        padding-right: 20%;
+        line-height: 2;
+      }
+    }
   }
 }
 
