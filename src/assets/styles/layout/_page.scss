@@ -1,0 +1,23 @@
+#page {
+  @include make-container();
+  @include make-container-max-widths();
+}
+
+
+#content {
+  @include make-row()
+}
+
+#primary {
+  @include make-col-auto();
+  @include media-breakpoint-up("md"){
+    @include make-col(9,12);
+  }
+}
+
+#secondary {
+  @include media-breakpoint-up("md"){
+    @include make-col(3,12);
+  }
+
+}
